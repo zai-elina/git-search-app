@@ -3,7 +3,7 @@ import * as S from "./ButtonSubmit.styles";
 interface Props {}
 
 const ButtonSubmit: FC<Props> = (props) => {
-  return <S.ButtonSubmit>Найти</S.ButtonSubmit>;
+  return <S.ButtonSubmit type="submit">Найти</S.ButtonSubmit>;
 };
 
 export default ButtonSubmit;

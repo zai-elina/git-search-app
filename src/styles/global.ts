@@ -16,31 +16,6 @@ export default createGlobalStyle`
   ul li {
     list-style: none;
   }
-  @font-face {
-    font-family: 'Roboto';
-    src: url('../public/fonts/Roboto-Regular.ttf');
-    font-style: normal;
-    font-weight: normal;
-  }
-  @font-face {
-    font-family: 'Roboto';
-    src: url('../public/fonts/Roboto-Bold.ttf');
-    font-style: normal;
-    font-weight: 700;
-  }
-  @font-face {
-    font-family: 'Roboto';
-    src: url('../public/fonts/Roboto-Black.ttf');
-    font-style: normal;
-    font-weight: 900;
-  }
-  
-  @font-face {
-    font-family: 'Roboto';
-    src: url('../public/fonts/Roboto-Medium.ttf');
-    font-style: normal;
-    font-weight: 500;
-  }
   body {
     font-family: 'Roboto', sans-serif;
     letter-spacing: 0em;
