@@ -48,6 +48,7 @@ export default createGlobalStyle`
     font-weight: 400;
     line-height: 24px;
     background-color:#E8EAEE;
+    color:#000;
   }
   h2 {
     font-style: normal;
