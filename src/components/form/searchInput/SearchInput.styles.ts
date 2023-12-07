@@ -2,10 +2,11 @@ import styled from "styled-components";
 
 export const InputSearchContainer = styled.div`
   position: relative;
+  width: 84%;
 `;
 
 export const InputSearch = styled.input`
-  width: 40vw;
+  width: 100%;
   padding: 24px 24px 24px 58px;
   border-radius: 12px;
   background: #f2f4f8;
@@ -34,7 +35,7 @@ export const InputSearch = styled.input`
     height: 16px;
     margin-right: 2px;
     cursor: pointer;
-    background-image: url(${require("../../assets/img/Cross-icon.svg")
+    background-image: url(${require("../../../assets/img/Cross-icon.svg")
       .default});
     background-size: cover;
   }

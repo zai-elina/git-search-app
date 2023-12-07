@@ -1,5 +1,9 @@
 import React, { FC } from "react";
-import { InputSearch, InputSearchContainer, SearchIon } from "./SearchInput.styles";
+import {
+  InputSearch,
+  InputSearchContainer,
+  SearchIon,
+} from "./SearchInput.styles";
 
 interface Props {}
 
@@ -23,7 +27,11 @@ const SearchInput: FC<Props> = (props) => {
           />
         </g>
       </SearchIon>
-      <InputSearch type="search" placeholder="Введите логин пользователя" />
+      <InputSearch
+        type="search"
+        placeholder="Введите логин пользователя"
+        autoComplete="on"
+      />
     </InputSearchContainer>
   );
 };

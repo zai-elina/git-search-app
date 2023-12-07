@@ -1,13 +1,13 @@
 import React, { FC } from "react";
 import { Main } from "./MainPage.styles";
-import SearchInput from "../../components/searchInput/SearchInput";
+import Form from "../../components/form/Form";
 
 interface Props {}
 
 const MainPage: FC<Props> = (props) => {
   return (
     <Main>
-      <SearchInput />
+      <Form />
     </Main>
   );
 };
