@@ -1,16 +1,17 @@
 import React, { FC } from "react";
 import Card from "../card/Card";
 import * as S from "./CardList.styles";
+import { useAppSelector } from "../../store/reduxHook";
+import { selectUserList } from "../../store/selectors/userListSelector";
 
-interface Props {}
+const CardList: FC = () => {
+  const userList = useAppSelector(selectUserList);
 
-const CardList: FC<Props> = (props) => {
   return (
     <S.CardList>
-      <Card
-        imageUrl={"https://avatars.githubusercontent.com/u/75142873?v=4&s=180"}
-        login={'zai-elina'}
-      />
+      {userList?.map((user) => (
+        <Card imageUrl={user.avatar_url} login={user.login} />
+      ))}
     </S.CardList>
   );
 };

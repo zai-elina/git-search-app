@@ -5,7 +5,7 @@ import {
   SearchIon,
 } from "./SearchInput.styles";
 import { UseFormRegister } from "react-hook-form";
-import { Inputs } from "../Form";
+import { Inputs } from "../FormSearch";
 
 interface Props {
   register: UseFormRegister<Inputs>;
@@ -35,7 +35,7 @@ const SearchInput: FC<Props> = ({ register }) => {
         type="search"
         placeholder="Введите логин пользователя"
         autoComplete="on"
-        {...register("search")}
+        {...register("userName")}
       />
     </InputSearchContainer>
   );

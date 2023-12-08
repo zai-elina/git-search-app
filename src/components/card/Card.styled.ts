@@ -2,18 +2,21 @@ import { styled } from "styled-components";
 
 export const CardContainer = styled.div`
   display: flex;
+  flex-direction: column;
   gap: 16px;
-  padding: 16px 24px 16px 16px;
+  padding: 16px;
   border-radius: 16px;
   align-items: center;
   flex-wrap: wrap;
+  transition: all ease-in-out 0.3s;
   &:hover {
     background: #f2f4f8;
+    cursor: pointer;
   }
 `;
 
 export const CardImageContainer = styled.div`
-  height: 125px;
+  height: 150px;
 `;
 export const CardImage = styled.img`
   border-radius: 12px;
@@ -25,7 +28,9 @@ export const CardSvg = styled.div`
   height: 30px;
 `;
 export const CardText = styled.div`
+  max-width: 150px;
   display: flex;
   align-items: center;
   gap: 10px;
+  word-break: break-all;
 `;
