@@ -1,4 +1,4 @@
-import React, { ChangeEventHandler, FC } from "react";
+import React, {  FC } from "react";
 import SearchInput from "./searchInput/SearchInput";
 import ButtonSubmit from "./buttonSubmit/ButtonSubmit";
 import { FormStyle } from "./FormSearch.styles";
@@ -10,18 +10,13 @@ export type Inputs = {
 
 interface IFormSearchProps {
   onSubmit: SubmitHandler<Inputs>;
-  onChange: ChangeEventHandler<HTMLFormElement>;
 }
 
-const FormSearch: FC<IFormSearchProps> = ({ onSubmit, onChange }) => {
+const FormSearch: FC<IFormSearchProps> = ({ onSubmit }) => {
   const { register, handleSubmit } = useForm<Inputs>();
 
   return (
-    <form
-      name="searchUser"
-      onSubmit={handleSubmit(onSubmit)}
-      onChange={onChange}
-    >
+    <form name="searchUser" onSubmit={handleSubmit(onSubmit)}>
       <FormStyle>
         <SearchInput register={register} />
         <ButtonSubmit />

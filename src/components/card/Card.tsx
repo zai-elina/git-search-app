@@ -29,7 +29,7 @@ const Card: FC<ICard> = ({ login, imageUrl }) => {
             />
           </svg>
         </S.CardSvg>
-        <h3>{login}</h3>
+        <div>{login}</div>
       </S.CardText>
     </S.CardContainer>
   );

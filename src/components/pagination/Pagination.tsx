@@ -1,27 +1,34 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import React, { FC, useState } from "react";
+import React, { FC } from "react";
 import { PaginationControl } from "react-bootstrap-pagination-control";
 
 interface IPaginationProps {
   countResult: number;
+  pageNumber: number;
+  setPageNumber: (page: number) => void;
+  setSkip: (isSkip: boolean) => void;
 }
 
 const Pagination: FC<IPaginationProps> = ({
   countResult,
-  //   onChange,
+  pageNumber,
+  setPageNumber,
+  setSkip,
 }) => {
-  const [page, setPage] = useState(1);
-  const countOfUserInPage = 12;
+  const countOfUserInPage = 24;
+
+  const onChange = (page: number) => {
+    setPageNumber(page);
+    setSkip(false);
+  };
 
   return (
     <PaginationControl
-      page={page}
+      page={pageNumber}
       between={3}
-      total={countResult}
+      total={countResult > 1000 ? 1000 : countResult}
       limit={countOfUserInPage}
-      changePage={(page) => {
-        setPage(page);
-      }}
+      changePage={onChange}
       ellipsis={1}
     />
   );

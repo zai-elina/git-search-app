@@ -1,4 +1,4 @@
-import React, { ChangeEventHandler, FC, useEffect, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import * as S from "./MainPage.styles";
 import FormSearch from "../../components/formSearch/FormSearch";
 import CardList from "../../components/cardList/CardList";
@@ -8,7 +8,6 @@ import { selectUserListLength } from "../../store/selectors/userListSelector";
 import { IUserSearchData, useSearchUserQuery } from "../../store/services/api";
 import { SubmitHandler } from "react-hook-form";
 import {
-  changeIsLoadingUserList,
   changeUserList,
   changeUserListLength,
 } from "../../store/slice/userListSlice";
@@ -20,39 +19,53 @@ export type Inputs = {
 
 const MainPage: FC = () => {
   const [skip, setSkip] = useState(true);
+  const [pageNumber, setPageNumber] = useState(1);
   const [searchData, setSearchData] = useState<IUserSearchData>({
     userName: "",
+    page: pageNumber,
   });
   const { data, isLoading, error } = useSearchUserQuery(searchData, {
     skip,
   });
   const dispatch = useAppDispatch();
+  const countResult = useAppSelector(selectUserListLength);
 
   useEffect(() => {
-    if (isLoading) {
-      dispatch(changeIsLoadingUserList({}));
-    } else if (data && !error) {
+    setSearchData((prevSearchData) => ({
+      ...prevSearchData,
+      page: pageNumber,
+    }));
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }, [pageNumber]);
+
+  useEffect(() => {
+    if (data && !error) {
       dispatch(changeUserList(data.items));
       dispatch(changeUserListLength(data.total_count));
     }
-  }, [isLoading, data, error, dispatch]);
+  }, [data, error, dispatch]);
 
   const onSubmit: SubmitHandler<Inputs> = (values) => {
     setSkip(false);
     setSearchData(values);
+    setPageNumber(1);
   };
 
-  const onChange: ChangeEventHandler<HTMLFormElement> = (event) => {
-    console.log(event.target.value);
-  };
-
-  const countResult = useAppSelector(selectUserListLength);
   return (
     <S.Main>
-      <FormSearch onSubmit={onSubmit} onChange={onChange} />
+      <FormSearch onSubmit={onSubmit} />
       {isLoading && <LoadingSpinner />}
       <CardList />
-      {countResult !== 0 && <CardListFooter />}
+      {countResult !== 0 && (
+        <CardListFooter
+          pageNumber={pageNumber}
+          setPageNumber={setPageNumber}
+          setSkip={setSkip}
+        />
+      )}
     </S.Main>
   );
 };

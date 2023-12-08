@@ -32,5 +32,9 @@ export const CardText = styled.div`
   display: flex;
   align-items: center;
   gap: 10px;
-  word-break: break-all;
+  font-size: 18px;
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;

@@ -17,9 +17,6 @@ export const userListSlice = createSlice({
   name: "userListSlice",
   initialState,
   reducers: {
-    changeIsLoadingUserList: (state, action) => {
-      state.isLoadingUserList = !state.isLoadingUserList;
-    },
     changeUserList: (state, action: { payload: User[] }) => {
       state.userList = action.payload;
     },
@@ -29,7 +26,7 @@ export const userListSlice = createSlice({
   },
 });
 
-export const { changeIsLoadingUserList, changeUserList, changeUserListLength } =
+export const { changeUserList, changeUserListLength } =
   userListSlice.actions;
 
 export default userListSlice.reducer;
