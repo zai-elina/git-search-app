@@ -1,0 +1,40 @@
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { User } from "../../type";
+
+const hostDomain = "https://api.github.com/";
+
+interface IUserSearchData {
+  userName: string;
+  sort: string;
+  page: number;
+  order: "asc" | "desc" | null;
+}
+
+interface IUserSearchResult {
+  total_count: number;
+  incomplete_results: boolean;
+  items: User[];
+}
+
+export const api = createApi({
+  reducerPath: "api",
+  baseQuery: fetchBaseQuery({ baseUrl: `${hostDomain}` }),
+  endpoints: (builder) => ({
+    getArticleListData: builder.query<IUserSearchResult, IUserSearchData>({
+      query: (value) => {
+        const { userName, page, sort, order } = value;
+
+        if (userName) {
+          const request = `search/users?q=${userName}`;
+          const sorted = sort ? `&sort=${sort}` : "";
+          const orderBy = order ? `&order=${order}` : "";
+          const numberOfPage = page ? `&page=${page}` : "";
+
+          return `${request}${sorted}${orderBy}${numberOfPage}`;
+        }
+
+        return `search/users`;
+      },
+    }),
+  }),
+});
