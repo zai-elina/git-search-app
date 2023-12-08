@@ -10,7 +10,7 @@ const CardList: FC = () => {
   return (
     <S.CardList>
       {userList?.map((user) => (
-        <Card imageUrl={user.avatar_url} login={user.login} />
+        <Card key={user.id} imageUrl={user.avatar_url} login={user.login} />
       ))}
     </S.CardList>
   );

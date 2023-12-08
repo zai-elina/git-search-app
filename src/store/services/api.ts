@@ -30,7 +30,7 @@ export const api = createApi({
           const orderBy = order ? `&order=${order}` : "";
           const numberOfPage = page ? `&page=${page}` : "";
 
-          return `${request}${sorted}${orderBy}${numberOfPage}&per_page=8`;
+          return `${request}${sorted}${orderBy}${numberOfPage}&per_page=12`;
         }
 
         return `search/users`;

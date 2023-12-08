@@ -3,6 +3,7 @@ import { useAppSelector } from "../../store/reduxHook";
 import { selectUserListLength } from "../../store/selectors/userListSelector";
 import * as S from "./CardListFooter.style";
 import { formatNumber } from "../../utilities/formatNumber";
+import Pagination from "../pagination/Pagination";
 
 interface Props {}
 
@@ -14,6 +15,7 @@ const CardListFooter: FC<Props> = (props) => {
       <S.CardFooterUserCount>
         {formatNumber(countResult)} пользователей
       </S.CardFooterUserCount>
+      <Pagination countResult={countResult}/>
     </S.CardFooterContainer>
   );
 };

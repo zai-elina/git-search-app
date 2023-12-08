@@ -16,6 +16,13 @@ export default createGlobalStyle`
   ul li {
     list-style: none;
   }
+  a{
+    color: #000 !important;
+  }
+  .active>.page-link, .page-link.active{
+    background-color: #000 !important;
+    border-color: #000 !important;
+  }
   body {
     font-family: 'Roboto', sans-serif;
     letter-spacing: 0em;
@@ -35,7 +42,7 @@ export default createGlobalStyle`
   }
 `;
 export const Container = styled.div`
-  margin-top: 72px;
+  margin: 40px;
   padding-left: calc(50% - 544px);
   padding-right: calc(50% - 544px);
 `;

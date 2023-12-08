@@ -2,22 +2,14 @@ import { createSlice } from "@reduxjs/toolkit";
 import { User } from "../../type";
 
 interface IUserListInitial {
-  searchInput: string;
-  sorting: string;
-  order: "asc" | "desc" | null;
   userList: User[];
   userListLength: number;
-  pageNumber: number;
   isLoadingUserList: boolean;
 }
 
 const initialState: IUserListInitial = {
-  searchInput: "",
-  sorting: "",
-  order: null,
   userList: [],
   userListLength: 0,
-  pageNumber: 1,
   isLoadingUserList: false,
 };
 
