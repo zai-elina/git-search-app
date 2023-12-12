@@ -26,7 +26,7 @@ const Pagination: FC<IPaginationProps> = ({
     <PaginationControl
       page={pageNumber}
       between={3}
-      total={countResult > 1000 ? 1000 : countResult}
+      total={countResult}
       limit={countOfUserInPage}
       changePage={onChange}
       ellipsis={1}

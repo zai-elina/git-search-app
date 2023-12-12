@@ -16,9 +16,16 @@ export interface IUserSearchResult {
   items: User[];
 }
 
+const apiToken = process.env.REACT_APP_API_TOKEN;
+
 export const api = createApi({
   reducerPath: "api",
-  baseQuery: fetchBaseQuery({ baseUrl: `${hostDomain}` }),
+  baseQuery: fetchBaseQuery({
+    baseUrl: `${hostDomain}`,
+    headers: {
+      Authorization: `Bearer ${apiToken}`,
+    },
+  }),
   endpoints: (builder) => ({
     searchUser: builder.query<IUserSearchResult, IUserSearchData>({
       query: (value) => {
