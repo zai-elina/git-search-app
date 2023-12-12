@@ -1,10 +1,13 @@
-import React from 'react';
-import './App.css';
+import React from "react";
+import GlobalStyles, { Container } from "./styles/global";
+import AppRoutes from "./routes/AppRoutes";
 
 function App() {
   return (
-    <div className="App">
-    </div>
+    <Container>
+      <GlobalStyles />
+      <AppRoutes />
+    </Container>
   );
 }
 
