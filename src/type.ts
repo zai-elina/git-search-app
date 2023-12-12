@@ -1,4 +1,4 @@
-export interface User {
+export interface IUser {
   login: string;
   id: number;
   node_id: string;
@@ -18,4 +18,21 @@ export interface User {
   starred_url: string;
   events_url: string;
   site_admin: boolean;
+}
+
+export interface IUserInfo extends IUser {
+  name: string;
+  company: string;
+  blog: string;
+  location: string;
+  email: string;
+  hireable: boolean;
+  bio: string;
+  twitter_username: string;
+  public_repos: number;
+  public_gists: number;
+  followers: number;
+  following: number;
+  created_at: string;
+  updated_at: string;
 }

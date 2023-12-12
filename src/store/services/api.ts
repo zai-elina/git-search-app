@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { User } from "../../type";
+import { IUser, IUserInfo } from "../../type";
 
 const hostDomain = "https://api.github.com/";
 
@@ -13,7 +13,7 @@ export interface IUserSearchData {
 export interface IUserSearchResult {
   total_count: number;
   incomplete_results: boolean;
-  items: User[];
+  items: IUser[];
 }
 
 const apiToken = process.env.REACT_APP_API_TOKEN;
@@ -43,7 +43,10 @@ export const api = createApi({
         return `search/users`;
       },
     }),
+    getUser: builder.query<IUserInfo, string>({
+      query: (login) => `users/${login}`,
+    }),
   }),
 });
 
-export const { useSearchUserQuery } = api;
+export const { useSearchUserQuery, useGetUserQuery } = api;

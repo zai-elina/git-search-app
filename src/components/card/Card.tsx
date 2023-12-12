@@ -4,11 +4,12 @@ import * as S from "./Card.styled";
 interface ICard {
   login: string;
   imageUrl: string;
+  onClick: () => void;
 }
 
-const Card: FC<ICard> = ({ login, imageUrl }) => {
+const Card: FC<ICard> = ({ login, imageUrl, onClick }) => {
   return (
-    <S.CardContainer>
+    <S.CardContainer onClick={onClick}>
       <S.CardImageContainer>
         <S.CardImage src={imageUrl} alt={login} />
       </S.CardImageContainer>
