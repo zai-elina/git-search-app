@@ -1,6 +1,7 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import React, { FC } from "react";
 import { PaginationControl } from "react-bootstrap-pagination-control";
+import { useMediaQuery } from "react-responsive";
 
 interface IPaginationProps {
   countResult: number;
@@ -15,7 +16,10 @@ const Pagination: FC<IPaginationProps> = ({
   setPageNumber,
   setSkip,
 }) => {
-  const countOfUserInPage = 24;
+  const isMobile = useMediaQuery({
+    query: "(max-width: 420px)",
+  });
+  const countOfUserInPage = 30;
 
   const onChange = (page: number) => {
     setPageNumber(page);
@@ -25,7 +29,7 @@ const Pagination: FC<IPaginationProps> = ({
   return (
     <PaginationControl
       page={pageNumber}
-      between={3}
+      between={isMobile ? 1 : 3}
       total={countResult}
       limit={countOfUserInPage}
       changePage={onChange}

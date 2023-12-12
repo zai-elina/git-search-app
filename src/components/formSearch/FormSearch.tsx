@@ -1,7 +1,7 @@
-import React, {  FC } from "react";
+import React, { FC } from "react";
 import SearchInput from "./searchInput/SearchInput";
 import ButtonSubmit from "./buttonSubmit/ButtonSubmit";
-import { FormStyle } from "./FormSearch.styles";
+import * as S from "./FormSearch.styles";
 import { useForm, SubmitHandler } from "react-hook-form";
 
 export type Inputs = {
@@ -17,10 +17,10 @@ const FormSearch: FC<IFormSearchProps> = ({ onSubmit }) => {
 
   return (
     <form name="searchUser" onSubmit={handleSubmit(onSubmit)}>
-      <FormStyle>
+      <S.FormStyle>
         <SearchInput register={register} />
         <ButtonSubmit />
-      </FormStyle>
+      </S.FormStyle>
     </form>
   );
 };

@@ -43,6 +43,11 @@ export default createGlobalStyle`
 `;
 export const Container = styled.div`
   margin: 40px;
-  padding-left: calc(50% - 544px);
-  padding-right: calc(50% - 544px);
+  padding-left: calc(50% - 700px);
+  padding-right: calc(50% - 700px);
+  @media screen and (max-width: 768px) {
+    padding-left: 10px;
+    padding-right: 10px;
+    margin: 10px;
+  }
 `;

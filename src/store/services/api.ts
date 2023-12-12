@@ -7,7 +7,7 @@ export interface IUserSearchData {
   userName: string;
   sort?: string;
   page?: number;
-  order?: "asc" | "desc";
+  order?: string;
 }
 
 export interface IUserSearchResult {
@@ -37,7 +37,7 @@ export const api = createApi({
           const orderBy = order ? `&order=${order}` : "";
           const numberOfPage = page ? `&page=${page}` : "";
 
-          return `${request}${sorted}${orderBy}${numberOfPage}&per_page=24`;
+          return `${request}${sorted}${orderBy}${numberOfPage}`;
         }
 
         return `search/users`;

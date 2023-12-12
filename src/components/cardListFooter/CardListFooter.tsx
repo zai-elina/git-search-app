@@ -5,13 +5,13 @@ import * as S from "./CardListFooter.style";
 import { formatNumber } from "../../utilities/formatNumber";
 import Pagination from "../pagination/Pagination";
 
-interface iCardListFooterProps {
+interface ICardListFooterProps {
   pageNumber: number;
   setPageNumber: (page: number) => void;
   setSkip: (isSkip: boolean) => void;
 }
 
-const CardListFooter: FC<iCardListFooterProps> = ({
+const CardListFooter: FC<ICardListFooterProps> = ({
   pageNumber,
   setPageNumber,
   setSkip,
@@ -24,7 +24,7 @@ const CardListFooter: FC<iCardListFooterProps> = ({
         Пользователей: {formatNumber(countResult)}
       </S.CardFooterUserCount>
       <Pagination
-        countResult={countResult}
+        countResult={countResult <= 1000 ? countResult : 1000}
         pageNumber={pageNumber}
         setPageNumber={setPageNumber}
         setSkip={setSkip}

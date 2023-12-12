@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const InputSearchContainer = styled.div`
   position: relative;
-  width: 84%;
+  flex-grow: 1;
 `;
 
 export const InputSearch = styled.input`
@@ -39,6 +39,19 @@ export const InputSearch = styled.input`
       .default});
     background-size: cover;
   }
+  @media screen and (max-width: 900px) {
+    font-size: 16px;
+    padding: 14px 14px 14px 40px;
+    &::placeholder {
+      font-size: 16px;
+    }
+  }
+  @media screen and (max-width: 445px) {
+    font-size: 14px;
+    &::placeholder {
+      font-size: 14px;
+    }
+  }
 `;
 
 export const SearchIon = styled.svg`
@@ -47,4 +60,10 @@ export const SearchIon = styled.svg`
   left: 24px;
   width: 25px;
   height: 25px;
+  @media screen and (max-width: 900px) {
+    top: 17px;
+    left: 14px;
+    width: 20px;
+    height: 20px;
+  }
 `;

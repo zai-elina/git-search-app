@@ -12,6 +12,7 @@ import {
   changeUserListLength,
 } from "../../store/slice/userListSlice";
 import LoadingSpinner from "../../components/loadingSpinner/LoadingSpinner";
+import SortResult from "../../components/sortResult/SortResult";
 
 export type Inputs = {
   userName: string;
@@ -29,6 +30,8 @@ const MainPage: FC = () => {
   });
   const dispatch = useAppDispatch();
   const countResult = useAppSelector(selectUserListLength);
+  const [selectedOrder, setSelectedOrder] = useState("");
+  const [infoForUser, setInfoForUser] = useState("");
 
   useEffect(() => {
     setSearchData((prevSearchData) => ({
@@ -45,26 +48,60 @@ const MainPage: FC = () => {
     if (data && !error) {
       dispatch(changeUserList(data.items));
       dispatch(changeUserListLength(data.total_count));
+      if (data.total_count === 0) {
+        setInfoForUser("Пользователь с таким логином не найден");
+      }
     }
   }, [data, error, dispatch]);
 
+  const handleOrderChange = (value: string) => {
+    if (selectedOrder === value) {
+      setSelectedOrder("");
+      setSearchData((prevSearchData) => ({
+        ...prevSearchData,
+        order: "",
+        sort: "",
+      }));
+    } else {
+      setSelectedOrder(value);
+      setSearchData((prevSearchData) => ({
+        ...prevSearchData,
+        order: value,
+        sort: "repositories",
+      }));
+    }
+  };
+
   const onSubmit: SubmitHandler<Inputs> = (values) => {
-    setSkip(false);
-    setSearchData(values);
-    setPageNumber(1);
+    if (values.userName) {
+      setSearchData(values);
+      setSearchData({
+        ...values,
+        order: selectedOrder,
+        sort: selectedOrder ? "repositories" : "",
+      });
+      setSkip(false);
+      setPageNumber(1);
+    }
   };
 
   return (
     <S.Main>
       <FormSearch onSubmit={onSubmit} />
+      <SortResult
+        handleOrderChange={handleOrderChange}
+        selectedOrder={selectedOrder}
+      />
       {isLoading && <LoadingSpinner />}
       <CardList />
-      {countResult !== 0 && (
+      {countResult !== 0 ? (
         <CardListFooter
           pageNumber={pageNumber}
           setPageNumber={setPageNumber}
           setSkip={setSkip}
         />
+      ) : (
+        infoForUser
       )}
     </S.Main>
   );
