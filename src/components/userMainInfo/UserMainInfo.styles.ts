@@ -13,8 +13,6 @@ export const UserMainInfoImg = styled.img`
   object-fit: cover;
 `;
 
-export const UserMainInfoDesc = styled.div``;
-
 export const UserName = styled.div`
   font-size: 24px;
   font-weight: 500;
@@ -23,7 +21,7 @@ export const UserName = styled.div`
 
 export const UserLogin = styled.a`
   color: #999faa;
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 400;
   line-height: 20px;
   cursor: pointer;
@@ -31,12 +29,13 @@ export const UserLogin = styled.a`
 `;
 export const UserText = styled.div`
   color: #999faa;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 400;
 `;
 export const UserFollow = styled.div`
   display: flex;
-  gap: 5px;
+  gap: 20px;
   font-size: 16px;
   font-weight: 400;
+  text-align: center;
 `;
