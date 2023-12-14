@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useEffect } from "react";
 import SearchInput from "./searchInput/SearchInput";
 import ButtonSubmit from "./buttonSubmit/ButtonSubmit";
 import * as S from "./FormSearch.styles";
@@ -13,7 +13,14 @@ interface IFormSearchProps {
 }
 
 const FormSearch: FC<IFormSearchProps> = ({ onSubmit }) => {
-  const { register, handleSubmit } = useForm<Inputs>();
+  const { register, handleSubmit, setValue } = useForm<Inputs>();
+
+  useEffect(() => {
+    const storedUserName = sessionStorage.getItem("searchUser");
+    if (storedUserName) {
+      setValue("userName", storedUserName);
+    }
+  }, [setValue]);
 
   return (
     <form name="searchUser" onSubmit={handleSubmit(onSubmit)}>
