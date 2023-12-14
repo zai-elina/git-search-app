@@ -1,12 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { IUserInfo } from "../../type";
+import { IRepo, IUserInfo } from "../../type";
 
 interface IUserListInitial {
   selectedUser: IUserInfo;
+  selectedUserRepos: IRepo[];
 }
 
 const initialState: IUserListInitial = {
   selectedUser: {} as IUserInfo,
+  selectedUserRepos: [],
 };
 
 export const userInfoSlice = createSlice({
@@ -16,9 +18,13 @@ export const userInfoSlice = createSlice({
     changeSelectedUser: (state, action: { payload: IUserInfo }) => {
       state.selectedUser = action.payload;
     },
+    changeSelectedUserPepos: (state, action: { payload: IRepo[] }) => {
+      state.selectedUserRepos = action.payload;
+    },
   },
 });
 
-export const { changeSelectedUser } = userInfoSlice.actions;
+export const { changeSelectedUser, changeSelectedUserPepos } =
+  userInfoSlice.actions;
 
 export default userInfoSlice.reducer;

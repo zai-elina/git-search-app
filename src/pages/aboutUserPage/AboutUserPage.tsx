@@ -6,7 +6,7 @@ import LoadingSpinner from "../../components/loadingSpinner/LoadingSpinner";
 import { useAppDispatch } from "../../store/reduxHook";
 import { changeSelectedUser } from "../../store/slice/userInfoSlice";
 import UserMainInfo from "../../components/userMainInfo/UserMainInfo";
-import UserRepositories from "../../components/userMainInfo/userRepositories/UserRepositories";
+import UserRepositories from "../../components/userRepositories/UserRepositories";
 
 interface Props {}
 
@@ -28,7 +28,7 @@ const AboutUserPage: React.FC<Props> = (props) => {
       ) : (
         <S.AboutUserContainer>
           <UserMainInfo />
-          <UserRepositories />
+          {data?.public_repos !== 0 && <UserRepositories />}
         </S.AboutUserContainer>
       )}
     </S.AboutUser>

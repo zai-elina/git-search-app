@@ -4,6 +4,9 @@ export const UserMainInfoContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 20px;
+  @media screen and (max-width: 769px) {
+    align-items: center;
+  }
 `;
 
 export const UserMainInfoImg = styled.img`
@@ -38,4 +41,9 @@ export const UserFollow = styled.div`
   font-size: 16px;
   font-weight: 400;
   text-align: center;
+`;
+export const UserMainInfoDesc = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 `;

@@ -22,7 +22,7 @@ const UserMainInfo: React.FC = () => {
       <a href={html_url} target="_blank" rel="noreferrer">
         <S.UserMainInfoImg src={avatar_url} />
       </a>
-      <div>
+      <S.UserMainInfoDesc>
         <S.UserName>{name}</S.UserName>
         <S.UserLogin href={html_url} target="_blank">
           @{login}
@@ -53,7 +53,7 @@ const UserMainInfo: React.FC = () => {
           </div>
         )}
         <S.UserText>Публичных репозиториев: {public_repos}</S.UserText>
-      </div>
+      </S.UserMainInfoDesc>
     </S.UserMainInfoContainer>
   );
 };

@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { IUser, IUserInfo } from "../../type";
+import { IRepo, IUser, IUserInfo } from "../../type";
 
 const hostDomain = "https://api.github.com/";
 
@@ -46,7 +46,14 @@ export const api = createApi({
     getUser: builder.query<IUserInfo, string>({
       query: (login) => `users/${login}`,
     }),
+    getUserRepositories: builder.query<IRepo[], string>({
+      query: (login) => `users/${login}/repos?per_page=6&sort=pushed`,
+    }),
   }),
 });
 
-export const { useSearchUserQuery, useGetUserQuery } = api;
+export const {
+  useSearchUserQuery,
+  useGetUserQuery,
+  useGetUserRepositoriesQuery,
+} = api;
