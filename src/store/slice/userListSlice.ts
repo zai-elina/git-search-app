@@ -1,13 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { User } from "../../type";
+import { IUser } from "../../type";
 
-interface IUserListInitial {
-  userList: User[];
+interface IUserInfoInitial {
+  userList: IUser[];
   userListLength: number;
   isLoadingUserList: boolean;
 }
 
-const initialState: IUserListInitial = {
+const initialState: IUserInfoInitial = {
   userList: [],
   userListLength: 0,
   isLoadingUserList: false,
@@ -17,7 +17,7 @@ export const userListSlice = createSlice({
   name: "userListSlice",
   initialState,
   reducers: {
-    changeUserList: (state, action: { payload: User[] }) => {
+    changeUserList: (state, action: { payload: IUser[] }) => {
       state.userList = action.payload;
     },
     changeUserListLength: (state, action: { payload: number }) => {
@@ -26,7 +26,6 @@ export const userListSlice = createSlice({
   },
 });
 
-export const { changeUserList, changeUserListLength } =
-  userListSlice.actions;
+export const { changeUserList, changeUserListLength } = userListSlice.actions;
 
 export default userListSlice.reducer;

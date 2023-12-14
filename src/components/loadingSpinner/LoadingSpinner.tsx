@@ -2,9 +2,8 @@ import React, { FC } from "react";
 import { Rings } from "react-loader-spinner";
 import * as S from "./LoadingSpinner.styles";
 
-interface Props {}
 
-const LoadingSpinner: FC<Props> = (props) => {
+const LoadingSpinner: FC = () => {
   return (
     <S.CardListLoading>
       <Rings
