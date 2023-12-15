@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { FC, useEffect } from "react";
 import * as S from "./UserRepositories.styles";
 import { useGetUserRepositoriesQuery } from "../../store/services/api";
 import { useParams } from "react-router-dom";
@@ -7,9 +7,7 @@ import { changeSelectedUserPepos } from "../../store/slice/userInfoSlice";
 import Repository from "./repository/Repository";
 import LoadingSpinner from "../loadingSpinner/LoadingSpinner";
 
-interface Props {}
-
-const UserRepositories: React.FC<Props> = (props) => {
+const UserRepositories: FC = () => {
   const { login } = useParams();
   const { data, error, isLoading } = useGetUserRepositoriesQuery(login ?? "");
   const dispatch = useAppDispatch();

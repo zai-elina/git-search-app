@@ -8,9 +8,7 @@ import { changeSelectedUser } from "../../store/slice/userInfoSlice";
 import UserMainInfo from "../../components/userMainInfo/UserMainInfo";
 import UserRepositories from "../../components/userRepositories/UserRepositories";
 
-interface Props {}
-
-const AboutUserPage: React.FC<Props> = (props) => {
+const AboutUserPage: React.FC = () => {
   const { login } = useParams();
   const { data, isLoading, error } = useGetUserQuery(login ?? "");
   const dispatch = useAppDispatch();

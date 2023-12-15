@@ -7,11 +7,11 @@ import {
 import { UseFormRegister } from "react-hook-form";
 import { Inputs } from "../FormSearch";
 
-interface Props {
+interface ISearchInputProps {
   register: UseFormRegister<Inputs>;
 }
 
-const SearchInput: FC<Props> = ({ register }) => {
+const SearchInput: FC<ISearchInputProps> = ({ register }) => {
   return (
     <InputSearchContainer>
       <SearchIon
