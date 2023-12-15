@@ -1,10 +1,17 @@
-import React from 'react';
-import './App.css';
+import React, { useEffect } from "react";
+import GlobalStyles, { Container } from "./styles/global";
+import AppRoutes from "./routes/AppRoutes";
 
 function App() {
+  useEffect(() => {
+    return () => sessionStorage.clear();
+  }, []);
+
   return (
-    <div className="App">
-    </div>
+    <Container>
+      <GlobalStyles />
+      <AppRoutes />
+    </Container>
   );
 }
 

@@ -1,46 +1,42 @@
-# Getting Started with Create React App
+# Интерфейс поиска пользователей github
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Описание проекта
 
-## Available Scripts
+Этот проект представляет собой платформу для поиска пользователей github по логину. Данные по пользователям берем с https://api.github.com/search/users?q={имя пользователя} (документация: https://developer.github.com/v3/search/#search-users).
 
-In the project directory, you can run:
+## Функционал
 
-### `npm start`
+- поиск: по логину;
+- сортировка: по количеству репозиториев (возрастанию/убыванию);
+- пагинация;
+- при клике на элемент открываются подробности.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Разработчик
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Зайнуллина Элина Ринатовна
 
-### `npm test`
+## Как запустить проект
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Убедитесь, что у вас установлен Node.js: https://nodejs.org/
+2. Клонируйте репозиторий на свой компьютер: `git clone git@github.com:zai-elina/git-search-app.git`
+3. Перейдите в директорию проекта: `cd git-search-app`
+4. Установите зависимости: `npm install`
+5. Создайте файл .env.local и запишите туда personal access tokens с сайта github, пример записи находится в файле .env.local.example. Если у вас нет токена создайте, исходя из указаний https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens
+6. Запустите проект: `npm run start`
+7. Откройте браузер и перейдите по адресу `http://localhost:3000`
 
-### `npm run build`
+## Test
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Запустите тесты: `npm run test`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Technology stack
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Язык программирования: TypeScript
+- React
+- Redux Toolkit
+- RTK Query
+- React Router DOM
+- React Hook Form
+- Styled Components
+- Jest
+- EsLint
