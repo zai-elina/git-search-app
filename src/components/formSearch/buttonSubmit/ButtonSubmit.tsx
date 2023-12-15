@@ -1,8 +1,7 @@
 import React, { FC } from "react";
 import * as S from "./ButtonSubmit.styles";
-interface Props {}
 
-const ButtonSubmit: FC<Props> = (props) => {
+const ButtonSubmit: FC = () => {
   return <S.ButtonSubmit type="submit">Найти</S.ButtonSubmit>;
 };
 
