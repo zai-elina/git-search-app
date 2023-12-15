@@ -22,7 +22,7 @@ const MainPage: FC = () => {
   const [skip, setSkip] = useState(true);
   const [pageNumber, setPageNumber] = useState(1);
   const [searchData, setSearchData] = useState<IUserSearchData>({
-    userName: "",
+    userName: sessionStorage.getItem("searchUser") ?? "",
     page: pageNumber,
   });
   const { data, isLoading, error } = useSearchUserQuery(searchData, {
@@ -55,6 +55,7 @@ const MainPage: FC = () => {
   }, [data, error, dispatch]);
 
   const handleOrderChange = (value: string) => {
+    setSkip(false);
     if (selectedOrder === value) {
       setSelectedOrder("");
       setSearchData((prevSearchData) => ({
@@ -74,7 +75,6 @@ const MainPage: FC = () => {
 
   const onSubmit: SubmitHandler<Inputs> = (values) => {
     if (values.userName) {
-      setSearchData(values);
       setSearchData({
         ...values,
         order: selectedOrder,
@@ -82,6 +82,7 @@ const MainPage: FC = () => {
       });
       setSkip(false);
       setPageNumber(1);
+      sessionStorage.setItem("searchUser", values.userName);
     }
   };
 
