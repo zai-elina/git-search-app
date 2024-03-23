@@ -1,5 +1,8 @@
 # Интерфейс поиска пользователей github
 
+## Ссылка на проект
+<a href="https://zai-elina.github.io/git-search-app/">https://zai-elina.github.io/git-search-app/</a>
+
 ## Описание проекта
 
 Этот проект представляет собой платформу для поиска пользователей github по логину. Данные по пользователям берем с https://api.github.com/search/users?q={имя пользователя} (документация: https://developer.github.com/v3/search/#search-users).
