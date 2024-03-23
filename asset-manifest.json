@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/git-search-app/static/css/main.80f79dd9.css",
-    "main.js": "/git-search-app/static/js/main.96dd11d2.js",
+    "main.js": "/git-search-app/static/js/main.35116246.js",
     "static/media/Roboto-Medium.ttf": "/git-search-app/static/media/Roboto-Medium.7c8d04cd831df3033c8a.ttf",
     "static/media/Roboto-Regular.ttf": "/git-search-app/static/media/Roboto-Regular.fc2b5060f7accec5cf74.ttf",
     "static/media/Roboto-Black.ttf": "/git-search-app/static/media/Roboto-Black.cf56c1b149d0a5e8d7c6.ttf",
@@ -9,10 +9,10 @@
     "index.html": "/git-search-app/index.html",
     "static/media/Cross-icon.svg": "/git-search-app/static/media/Cross-icon.a9d08b2fcc941da52f0a8fe9258d51f5.svg",
     "main.80f79dd9.css.map": "/git-search-app/static/css/main.80f79dd9.css.map",
-    "main.96dd11d2.js.map": "/git-search-app/static/js/main.96dd11d2.js.map"
+    "main.35116246.js.map": "/git-search-app/static/js/main.35116246.js.map"
   },
   "entrypoints": [
     "static/css/main.80f79dd9.css",
-    "static/js/main.96dd11d2.js"
+    "static/js/main.35116246.js"
   ]
 }
